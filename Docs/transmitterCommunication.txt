@@ -1,0 +1,29 @@
+Two seperate types of client will connect to this application, Users and Transmitters. Users connect using standard http, however transmitters will connect to a seperate webhook address, this document outlines their communication.
+
+Transmitters will attempt to create a websocket connection on boot, as soon as it creates a connection it will send the following json:
+
+{
+	"msg_type": "init",
+	"identifier": <% 4byte Integer %>,
+}
+
+If this is the first time connecting to the server, or it has been reset, the Identifier will be 0, If this is the case the server should respond by sending:
+
+{
+	"msg_type": "init",
+	"identifier": <% 4byte Integer %>,
+}
+
+otherwise the Identifier exists to connect the collar to a user, the user can find the collar's Identifier, converted to Base64 by visiting it's local address.
+
+in order to send a command to the transmitter the following json should be sent:
+
+{
+	"msg_type": "cmd",
+	"mode": "cmd",
+	"channel": "cmd",
+	"intensity": "cmd",
+	"duration": "cmd"
+}
+
+otherwise, the transmitter will send a ping/heartbeat to the server every ~2s, and will restart the socket if not responded to with a pong, this will have no payload.

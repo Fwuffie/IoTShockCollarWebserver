@@ -1,0 +1,23 @@
+{
+  "name": "iotshockcollarwebserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fwuffie/IoTShockCollarWebserver.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fwuffie/IoTShockCollarWebserver/issues"
+  },
+  "homepage": "https://github.com/Fwuffie/IoTShockCollarWebserver#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^8.2.2"
+  }
+}
